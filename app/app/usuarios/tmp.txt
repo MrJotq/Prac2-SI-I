@@ -1,1 +1,0 @@
-Evitar que se borre el directorio
