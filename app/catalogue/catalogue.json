@@ -1,0 +1,45 @@
+{
+    "films": [
+        {
+            "id": 1,
+            "title": "Star Wars: Episodio 1 - La amenaza fantasma",
+            "description": "Dos caballeros jedi escapan de un bloqueo hostil para ir en busca de aliados y conocen a un joven que podría restaurar el equilibrio en la Fuerza. Pero los previamente inactivos sith resurgen para reclamar su antigua gloria.",
+            "poster": "img/starwars1.jpg",
+            "price": 18.99,
+            "categories": [
+                "Acción",
+                "Aventura",
+                "Fantasía"
+            ],
+            "year": 1999,
+            "duration": 136
+        },
+        {
+            "id": 2,
+            "title": "Vengadores: Endgame",
+            "description": "Después de que Thanos haya aniquilado a la mitad del universo, los Vengadores supervivientes deben hacer todo lo posible por deshacer tal atrocidad.",
+            "poster": "img/endgame.jpg",
+            "price": 9.99,
+            "categories": [
+                "Acción",
+                "Aventura",
+                "Drama"
+            ],
+            "year": 2019,
+            "duration": 181
+        },
+        {
+            "id": 3,
+            "title": "Whiplash",
+            "description": "Un joven y prometedor batería se inscribe en un competitivo conservatorio donde sus sueños de grandeza son guiados por un instructor que no se detiene ante nada para realizar el potencial de su estudiante.",
+            "poster": "img/whiplash.jpg",
+            "price": 14.99,
+            "categories": [
+                "Drama",
+                "Music"
+            ],
+            "year": 2014,
+            "duration": 106
+        }
+    ]
+}

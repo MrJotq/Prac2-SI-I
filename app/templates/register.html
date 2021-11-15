@@ -1,0 +1,58 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="logRegContent">
+        <form class="regWrapper" method="post">
+            <div class="logRegTitle">Registrate</div>
+
+            <hr>
+
+            <div class="logRegUser">
+                <div class="logRegError">Introduce un usuario válido. (Letras y números, long 6)</div>
+                <input name="username" class="logRegFields" type="text" placeholder="Usuario">
+            </div>
+
+            <div class="logRegMail">
+                <div class="logRegError">Introduce un email válido. (Ej. example@examplemail.com)</div>
+                <input name="email" class="logRegFields" type="text" placeholder="Email">
+            </div>
+
+            <div class="logRegPassword">
+                <div class="logRegError">Introduce una contraseña válida. (Dificultad min: media)</div>
+                <input name="password" class="logRegFields password" type="password" placeholder="Contraseña">
+            </div>
+
+            <div class="logRegText">Repite la contraseña:</div>
+            <div class="logRegPasswordCnf">
+                <div class="logRegError">La contraseña ha de coincidir con la anterior.</div>
+                <input class="logRegFields" type="password" placeholder="Confirmación Contraseña">
+            </div>
+
+            <div class="logRegPasswordStrengthBar">
+                <span class="logRegPasswordWeak"></span>
+                <span class="logRegPasswordMedium"></span>
+                <span class="logRegPasswordStrong"></span>
+            </div>
+            <div class="logRegPasswordText">Tu contraseña es <span class="logRegPasswordStrenghtText"></span></div>
+
+            <hr>
+
+            <div class="logRegSubtitle">Método de Pago</div>
+            <div class="logRegCard">
+                <div class="logRegError">Introduce una tarjeta válida. (16 dígitos)</div>
+                <input name="card" class="logRegFields" type="text" placeholder="Tarjeta">
+            </div>
+
+            <div class="logRegAddress">
+                <div class="logRegError">Introduce una dirección válida.</div>
+                <input name="address" class="logRegFields" type="text" placeholder="Dirección">
+            </div>
+
+            <button class="logRegButtons" type="submit">Registrarse</button>
+        </form>
+    </div>
+{% endblock %}

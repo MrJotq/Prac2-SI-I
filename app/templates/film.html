@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="filmContent">
+        <img alt="Poster of {{ film.title }}" src="{{ url_for('static', filename=film.poster) }}" class="filmPoster">
+        <div class="filmSummary">
+            <div class="filmData">
+                <div class="filmTitle">{{ film.title }}</div>
+                <ul class="filmInfo">
+                    <li>·</li>
+                    <li> {{ film.year }}</li>
+                    <li>·</li>
+                    <li>{{ film.duration }}min</li>
+                    <li>·</li>
+                    {% for category in film.categories %}
+                    <li>{{ category }}</li>
+                    <li>·</li>
+                    {% endfor %}
+                </ul>
+                <p class="filmDesc">{{ film.description }}</p>
+            </div>
+            <div class="filmPrice"> {{ film.price }} </div>
+            <a href="{{ url_for('cart_add', film_id = film.id) }}" class="filmShoppingButton">
+                <div class="filmShoppingButtonContent">
+                    <i class="fas fa-cart-arrow-down"></i>
+                    <div class="filmShoppingButtonText">Añadir a la cesta</div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}

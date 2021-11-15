@@ -1,0 +1,43 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="checkoutContent">
+        <form class="checkoutWrapper" method="post" novalidate>
+            <div class="checkoutTitle">Confirmar Compra</div>
+
+            <hr>
+
+            <div class="checkoutInfoPoints">
+                <div class="checkoutText">Puntos actuales</div>
+                <div class="checkoutPoints">{{ points }}</div>
+                <div class="checkoutText">Canjear Puntos</div>
+                <input name="points" type="number" class="checkoutInputPoints" min="0" value="0" step="100">
+            </div>
+
+            <div class="checkoutError">No dispones de suficientes puntos</div>
+
+            <hr>
+
+            <div class="checkoutInfoCalc">
+                <div class="checkoutText">Total Cesta</div>
+                <div class="checkoutCartTotal">{{ cart_total }}</div>
+                <div class="checkoutText">Descuento por puntos</div>
+                <div class="checkoutDiscount"></div>
+                <div class="checkoutText">Total a pagar</div>
+                <div class="checkoutTotal"></div>
+                <div class="checkoutSubtext">Puntos acumulados</div>
+                <div class="checkoutNewPoints"></div>
+                <input name="total" type="number" class="checkoutInputTotal">
+            </div>
+
+            <button type="submit" class="checkoutConfirmButton">
+                <i class="fas fa-cash-register"></i>
+                <span class="checkoutButtonsText"> Confirmar </span>
+            </button>
+        </form>
+    </div>
+{% endblock %}

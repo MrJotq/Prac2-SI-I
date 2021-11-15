@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="logRegContent">
+        <form class="logWrapper" method="post">
+            <div class="logRegTitle">Identíficate</div>
+            <hr>
+            <div class="logRegUser">
+                <div class="logRegError">Introduce un usuario válido. (Letras de a-z, A-Z)</div>
+                {% if not session['last_user'] %}
+                <input name="username" class="logRegFields" type="text" placeholder="Usuario">
+                {% else %}
+                <input name="username" class="logRegFields" type="text" value="{{ session['last_user'] }}">
+                {% endif %}
+            </div>
+            <div class="logRegPassword">
+                <div class="logRegError">Introduce una contraseña válida</div>
+                <input name="password" class="logRegFields logRegPwd" type="password" placeholder="Contraseña">
+            </div>
+            <button class="logRegButtons" type="submit">Ingresar</button>
+            <div class="logRegText">
+                ¿No estas registrado? Registrate pinchando <a href="{{ url_for('register') }}">aquí</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
