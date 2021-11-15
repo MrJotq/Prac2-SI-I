@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock%}
+
+{% block content %}
+    <div class="filmCatalogueContent">
+        {% for film in films %}
+        <div class="filmPreview">
+            <a href="{{ url_for('film', film_id = film.id) }}">
+                <img alt="Link to {{ film.title }} preview" src="{{ url_for('static', filename=film.poster) }}" class="filmPreviewPoster">
+                <div class="filmPreviewTitle">{{ film.title }}</div>
+                <div class="filmPreviewYear">{{ film.year }}</div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

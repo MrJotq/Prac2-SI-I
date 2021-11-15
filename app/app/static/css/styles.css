@@ -1,0 +1,1158 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1f1f1f;
+    margin:0;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0 0 1em 0;
+}
+
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 9999px;
+    background-color: #4b4b4b;
+}
+
+/* CSS ----------------------------------------------------------------------------------------- */
+
+/* Wrapper ------------------------------ */
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    margin: 0;
+    height: 100vh;
+}
+
+
+.wrapper > * {                   /* Referencia a todos los elementos dentro de wrapper */
+    background-color:#0e0c0c;
+    color: white;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 150%;
+}
+
+
+@media screen and (min-width: 800px) {  /* Propiedades para pantallas de pc */
+    .sidebar {
+        float: left;
+    }
+
+    .content {
+        float: right;
+    }
+
+    .wrapper {
+        margin: 0 auto;
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    header, footer {
+        grid-column: 1 / -1;            /* Comienzo en la posicion 1 y relleno hasta el final */
+        clear: both;
+    }
+}
+
+/* Header ------------------------------- */
+header {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr 5fr 0.8fr 0.8fr 0.8fr;
+    border-bottom: 2px solid #991010;
+}
+
+.name {
+    display: flex;
+    margin: auto;
+}
+
+.nameIcon {
+    width: 40px;
+    float: left;
+    border-radius: 5px;
+}
+
+.nameText {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    font-weight: 900;
+}
+
+.search {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.searchField {
+    width: 100%;
+    border: 3px solid #750000;
+    background-color: #eeeeee;
+    border-right: none;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    height: 40px;
+    float: left;
+    font-size: 20px;
+}
+
+.searchButton {
+    border: 1px solid #750000;
+    background: #750000;
+    text-align: center;
+    color: white;
+    padding: 0px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    float: right;
+}
+
+.headerButtons {
+    width: 100%;
+    height: 40px;
+    background: #750000;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.headerButtons:hover {
+    background: #8d0000;
+}
+
+.headerButtonsContent {
+    font-family: Arial, sans-serif;
+    font-weight: 530;
+    font-size: 13px;
+}
+
+@media screen and (max-width: 1800px) {
+    .nameText {
+        font-size: 90%;
+    }
+}
+
+@media screen and (max-width: 1650px) {
+    .nameText {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .nameText {
+        font-size: 70%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .nameText {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    header {
+        grid-gap: 15px;
+    }
+
+    .headerButtonsText {
+        display: none;
+    }
+}
+
+/* Sidebar ----------------------------------- */
+.sidebar {
+    min-height: 78px;
+    width: 100%;
+    min-width: 210px;
+    overflow-x: hidden;
+    overflow-y:visible;
+    border-bottom: 2px solid #991010;
+    border-top: 2px solid #991010;
+}
+
+.sidebarItems {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.sidebarButtons {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: 600;
+    color: white;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    background: #750000;
+    border-radius: 5px;
+}
+
+.sidebarButtons:hover {
+    background: #8d0000;
+}
+
+.sidebarSubitems {
+    display: none;
+    position: absolute;
+    padding-left: 20px;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.sidebarSubitems a {
+    display: block;
+}
+
+.fa-caret-down {
+    float: right;
+}
+
+/* Content ----------------------------------- */
+.filmCatalogueContent {
+    display: grid;
+    grid-gap: 5px 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border-top: 2px solid #991010;
+    border-bottom: 2px solid #991010;
+}
+
+.filmPreview {
+    margin-bottom: auto;
+    width: 125px;
+    height: 240px;
+    margin: auto;
+}
+
+.filmPreview a {
+    margin: 0;
+    padding: 0;
+}
+
+.filmPreviewPoster {
+    width: 125px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px black;
+}
+
+.filmPreviewPoster:hover{
+    filter: brightness(0.5)
+}
+
+.filmPreviewTitle {
+    font-weight: 900;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.filmPreviewYear {
+    font-size: 13px;
+    opacity: 0.5;
+}
+
+.filmPrice:after {
+    content: '€';
+}
+
+@media screen and (max-width: 1700px) {
+    .filmCatalogueContent {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .filmCatalogueContent {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .filmCatalogueContent {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .filmCatalogueContent {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .filmCatalogueContent {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .filmCatalogueContent {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Footer ------------------------------------ */
+
+footer {
+    border-top: 2px solid #991010;
+}
+
+.footerLinks {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+.footerLinks li {
+    display: inline;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.footerLinks li a {
+    padding: 15px;
+}
+
+.footerLinks li a:hover {
+    color: #fc1919;
+}
+
+.footerLinks li a:focus {
+    color: #a31111;
+}
+
+.footerText {
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.footerUsers {
+    font-weight: 600;
+}
+
+@media screen and (min-width: 800px) {
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    footer hr {
+        display: none;
+    }
+}
+
+/* Login & Register CSS ----------------------------------------------------------------------------------- */
+
+.logRegContent {
+    border-top: 2px solid #991010;
+    border-bottom: 2px solid #991010;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logWrapper {
+    width: 400px;
+    height: fit-content;
+    background-color: #202020;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px black;
+    border-top: 2px solid #991010;
+    border-bottom: 2px solid #991010;
+}
+
+.regWrapper {
+    width: 400px;
+    height: fit-content;
+    background-color: #202020;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px black;
+    border-top: 2px solid #991010;
+    border-bottom: 2px solid #991010;
+}
+
+.logRegContent hr {
+    padding: 0;
+    margin: 20px 0 15px 0;
+}
+
+.logRegTitle {
+    margin: 0;
+    text-align: center;
+    font-weight: 900;
+}
+
+.logRegSubtitle {
+    margin: 20px 0  ;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.logRegFields {
+    width: 100%;
+    border: 2px solid #991010;
+    background: #eeeeee;
+    border-radius: 5px;
+    padding: 11px 10px;
+    font-size: 14px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.logRegButtons {
+    width: 100%;
+    height: 40px;
+    background: #750000;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.logRegButtons:hover {
+    background: #8d0000;
+}
+
+.logRegText {
+    margin-top: 10px;
+    font-size: 18px ;
+}
+
+.logRegText a {
+    color: #8d0000;
+}
+
+.logRegText a:hover {
+    color: #8d0000;
+}
+
+.logRegText a:focus {
+    color: #5c0000;
+}
+
+.logRegError {
+    font-size: 10px;
+    color: #ff0000;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+.logRegPasswordText {
+    text-align: center;
+    font-size: 17px;
+    visibility: hidden;
+}
+
+.logRegPasswordStrengthBar {
+    height: 10px;
+    font-size: 17px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logRegPasswordStrengthBar span {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.logRegPasswordWeak {
+    background: red;
+}
+
+.logRegPasswordMedium {
+    background: orange;
+    margin: 0 3px;
+}
+
+.logRegPasswordStrong {
+    background: green;
+}
+
+.logRegPasswordText.weak {
+    color: red;
+}
+
+.logRegPasswordText.medium {
+    color: orange;
+}
+
+.logRegPasswordText.strong {
+    color: green;
+}
+
+
+/* Film CSS ------------------------------------------------------------------------------------ */
+.filmContent {
+    border-top: 2px solid #991010;
+    border-bottom: 2px solid #991010;
+    padding: 20px 30px;
+}
+
+.filmPoster {
+    width: 240px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px black;
+}
+
+.filmTitle {
+    font-weight: 900;
+    font-size: 40px;
+}
+
+.filmInfo {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.filmInfo li{
+    padding: 0 10px 0 0;
+    display: inline;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.filmDesc {
+    margin-top: 20px;
+    font-size:15px;
+    text-align: justify;
+}
+
+.filmPrice {
+    text-align: right;
+    font-weight: 600;
+}
+
+.filmShoppingButton {
+    width: 100%;
+    height: 40px;
+    background: #750000;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.filmShoppingButton:hover {
+    background: #8d0000;
+}
+
+.filmShoppingButtonContent {
+    font-family: Arial, sans-serif;
+    font-weight: 530;
+    font-size: 13px;
+}
+
+@media screen and (min-width: 800px) {
+    .filmContent {
+        grid-gap: 30px;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        padding: 30px 30px;
+    }
+
+    .filmSummary {
+        display: grid;
+        grid-template-rows: 8.7fr 0.3fr 1fr;
+        grid-gap: 5px;
+    }
+
+    .filmPoster {
+        width: 80%;
+        min-width: 240px;
+    }
+
+    .filmInfo li{
+        padding: 0 40px 0 0;
+    }
+}
+
+/* Cart CSS ------------------------------------------------------------------------------------ */
+.cartContent {
+    border-top: 2px solid #991010;
+    border-bottom: 2px solid #991010;
+    padding: 20px 30px;
+}
+
+.cartTop {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.cartTitle {
+    font-weight: 900;
+    width: 85px;
+    font-size: 30px;
+}
+
+.cartLabels {
+    margin-top: auto;
+    font-size: 15px;
+    color: #b9b9b9;
+    text-align: right;
+    min-width: 60px;
+}
+
+.cartLabelsFiller {
+    min-width: 60px;
+}
+
+.cartFilm {
+    height: 140px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 8fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #242424;
+    margin-top: 10px;
+}
+
+.cartFilmPoster {
+    width: 85px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cartFilmPoster:hover{
+    filter: brightness(0.5)
+}
+
+.cartFilmData {
+    margin: auto 0;
+}
+
+.cartFilmDataTitle {
+    font-weight: 900;
+    font-size: 20px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.cartFilmDataId {
+    display: none;
+}
+
+.cartFilmDataDesc {
+    display: -webkit-box;
+    font-size:15px;
+    text-align: justify;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.cartFilmQuantity {
+    height: 40px;
+    width: 62px;
+    margin: auto 0;
+    margin-left: auto;
+    background: #eeeeee;
+    border: 2px solid #750000;
+    border-radius: 5px;
+    text-align: right;
+    padding: 0 10px;
+    font-size: 15px;
+}
+
+.cartButtons {
+    width: 70%;
+    min-width: 60px;
+    height: 40px;
+    margin: auto 0;
+    margin-left: auto;
+    background: #d41515;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.cartButtons:hover {
+    background: #fc1919;
+}
+
+.cartButtonsText {
+    font-family: Arial, sans-serif;
+    font-weight: 530;
+    display:block;
+}
+
+.cartFilmPrice, .cartFilmPartialTotalPrice, .cartFilmTotalPrice {
+    font-size: 20px;
+    text-align: right;
+    margin: auto 0;
+    min-width: 60px;
+}
+
+.cartFilmPrice:after, .cartFilmPartialTotalPrice:after, .cartFilmTotalPrice::after {
+    content: '€';
+}
+
+.cartCalc {
+    margin-top: 15px;
+    grid-gap: 10px;
+    display: grid;
+    grid-template-columns: 12fr 1fr;
+}
+
+.cartPayButton {
+    width:13%;
+    height: 40px;
+    min-width: 100px;
+    background: #750000;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin-top: 15px;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.cartPayButton:hover {
+    background: #8d0000;
+}
+
+.cartPayButtonContent {
+    font-family: Arial, sans-serif;
+    font-weight: 530;
+    font-size: 13px;
+}
+
+@media screen and (max-width: 800px) {
+    .cartTop {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+
+    .cartLabelsFiller {
+        display: none;
+    }
+
+    .cartFilm {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+
+    .cartFilmData {
+        display: none;
+    }
+
+    .cartButtons {
+        width: 40px;
+    }
+    .cartButtonsText {
+        display: none;
+    }
+}
+
+/* Checkout CSS -------------------------------------------------------------------------------- */
+.checkoutContent {
+    border-top: 2px solid #991010;
+    border-bottom: 2px solid #991010;
+    padding: 20px 30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.checkoutWrapper {
+    width: 400px;
+    height: fit-content;
+    background-color: #202020;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px black;
+    border-top: 2px solid #991010;
+    border-bottom: 2px solid #991010;
+}
+
+.checkoutWrapper hr {
+    margin-bottom: 20px;
+}
+
+.checkoutTitle {
+    margin: 0;
+    text-align: center;
+    font-weight: 900;
+}
+
+.checkoutInfoPoints {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    grid-gap: 10px;
+}
+
+.checkoutInfoCalc {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    grid-gap: 10px;
+}
+
+.checkoutText {
+    margin-right: auto;
+    font-size: 18px ;
+    line-height: 30px;
+    height: 30px;
+}
+
+.checkoutSubtext {
+    margin-right: auto;
+    font-size: 14px ;
+    line-height: 30px;
+    height: 30px;
+    color:grey;
+}
+
+.checkoutCartTotal {
+    color: #d3d3d3;
+    margin-left: auto;
+    font-size: 20px;
+    line-height: 30px;
+    height: 30px;
+}
+
+.checkoutCartTotal:after {
+    content: "€";
+}
+
+.checkoutTotal {
+    color: #d3d3d3;
+    margin-left: auto;
+    font-size: 20px;
+    line-height: 30px;
+    height: 30px;
+}
+
+.checkoutTotal:after {
+    content: "€";
+}
+
+.checkoutInputTotal {
+    display: none;
+}
+
+.checkoutDiscount {
+    color: #d3d3d3;
+    margin-left: auto;
+    font-size: 20px;
+    line-height: 30px;
+    height: 30px;
+}
+
+.checkoutDiscount:after {
+    content: "€";
+}
+
+.checkoutPoints {
+    color: #d3d3d3;
+    margin-left: auto;
+    font-size: 20px;
+    line-height: 30px;
+    height: 30px;
+}
+
+.checkoutPoints:after {
+    content: "pts";
+}
+
+.checkoutNewPoints {
+    color: grey;
+    margin-left: auto;
+    font-size: 14px;
+    line-height: 30px;
+    height: 30px;
+}
+
+.checkoutNewPoints:after {
+    content: "pts"
+}
+
+.checkoutInputPoints {
+    margin-left: auto;
+    width: 60px;
+    height: 30px;
+    border: 2px solid #750000;
+    border-radius: 5px;
+    text-align: right;
+    font-size: 15px;
+}
+
+.checkoutConfirmButton {
+    width: 100%;
+    height: 40px;
+    background: #750000;
+    border: none;
+    border-radius: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.checkoutConfirmButton:hover {
+    background: #8d0000;
+}
+
+.checkoutButtonsText {
+    font-family: Arial, sans-serif;
+    font-weight: 530;
+    display: block;
+}
+
+.checkoutError {
+    font-size: 10px;
+    color: #ff0000;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    margin-bottom: 20px;
+}
+
+/* History CSS --------------------------------------------------------------------------------- */
+.historyContent {
+    border-top: 2px solid #991010;
+    border-bottom: 2px solid #991010;
+    padding: 20px 30px;
+}
+
+.historyHead {
+    display: grid;
+    grid-template-columns: 8fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.historyTitle {
+    font-weight: 900;
+    width: 85px;
+    font-size: 30px;
+}
+
+.historySubtitle {
+    font-size: 18px;
+    line-height: 34px;
+    text-align: right;
+    color: #b9b9b9;
+    width: 150px;
+}
+
+.historyMoney {
+    color: white;
+    font-weight: 600;
+}
+
+.historyMoney:after {
+    content: "€";
+}
+
+.historyInputMoney {
+    display: flex;
+    margin-left: auto;
+    min-width: 100px;
+}
+
+.historyInputMoneyField {
+    width: 100%;
+    border: 2px solid #750000;
+    background-color: #eeeeee;
+    border-right: none;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    height: 30px;
+    float: left;
+    font-size: 15px;
+    text-align: right;
+}
+
+.historyInputMoneyButton {
+    border: 1px solid #750000;
+    background: #750000;
+    text-align: center;
+    color: white;
+    padding: 0px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    float: right;
+    font-weight: 900;
+}
+
+.historyWrapper {
+    width: 100%;
+    text-align: left;
+}
+
+.historyLabels {
+    font-size: 15px;
+    color: #b9b9b9;
+    font-weight: normal;
+}
+
+.historyLabelsEnd {
+    text-align: right;
+}
+
+.historyItems {
+    font-size: 17px;
+}
+
+.historyDate {
+    width: 130px;
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+.historyFilm {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 0;
+}
+
+.historyButton {
+    padding: 0;
+    border: none;
+    background: none;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.historyButton:hover {
+    cursor: pointer;
+}
+
+.historyFilmData {
+    margin: auto 0;
+    display: none;
+}
+
+.historyFilmPoster {
+    width: 70px;
+    border-radius: 5px;
+}
+
+.historyFilmPoster:hover{
+    filter: brightness(0.5)
+}
+
+.historyFilmTitle {
+    margin-bottom: 10px;
+}
+
+.historyFilmDetails {
+    font-weight: normal;
+    color: #d8d8d8;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 16px;
+}
+
+.historyFilmPrice {
+    text-align: right;
+}
+
+.historyFilmPrice:after {
+    content: "€"
+}
+
+.historyFilmQuantity {
+    text-align: right;
+}
+
+.historyFilmTotal {
+    text-align: right;
+    font-weight: 600;
+}
+
+.historyFilmTotal:after {
+    content: "€"
+}
+
+.historyDetails {
+    width: 100px;
+    vertical-align: top;
+    padding-top: 10px;
+    text-align: right;
+}
+
+.historyTotal {
+    text-align: right;
+    width: 100px;
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+.historyTotal:after {
+    content: "€";
+}
